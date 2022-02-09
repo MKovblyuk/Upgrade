@@ -1,0 +1,4 @@
+.ProgressBar{
+    display: flex;
+    justify-content: space-between;
+}

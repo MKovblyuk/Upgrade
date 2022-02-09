@@ -1,0 +1,5 @@
+{
+    "port": 5000,
+    "jwtSecret": "secret world",
+    "mongoUri": "mongodb+srv://Mykola:1q2w3e4r5t6y7u8i9o@cluster0.mm475.mongodb.net/UpgradeDB?retryWrites=true&w=majority"
+}
