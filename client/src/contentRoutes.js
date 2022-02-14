@@ -7,17 +7,17 @@ import {TasksPage} from "./pages/TasksPage"
 import {ToDoPage} from "./pages/ToDoPage"
 
 
-export const useContentRoutes = (isAuthenticated, skillsState = {}) => {
+export const useContentRoutes = (isAuthenticated) => {
     if(isAuthenticated){
         console.log("in is authenticated routes")
         return (
             <Routes>
                 <Route path="profile" element={<ProfilePage/>}/>
-                <Route path="skills" element={<SkillsPage skillsState={skillsState}/>}/>
+                <Route path="skills" element={<SkillsPage/>}/>
                 <Route path="tasks" element={<TasksPage/>}/>
                 <Route path="todo" element={<ToDoPage/>}/>
-                <Route path="/" element={<SkillsPage skillsState={skillsState}/>}/>
-                <Route path="*" element={<SkillsPage skillsState={skillsState}/>}/>
+                <Route path="/" element={<SkillsPage/>}/>
+                <Route path="*" element={<SkillsPage/>}/>
             </Routes>
         )
     }

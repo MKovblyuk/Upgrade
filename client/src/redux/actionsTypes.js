@@ -1,0 +1,4 @@
+export const FETCH_SKILLS = "SKILLS/FETCH_SKILLS"
+
+export const SHOW_LOADING = "APP/SHOW_LOADING"
+export const HIDE_LOADING = "APP/HIDE_LOADING"
