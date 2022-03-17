@@ -29,4 +29,23 @@ router.get("/", authMiddleware ,async (req, res) => {
     }
 })
 
+router.post("/add", authMiddleware, async (req, res) => {
+    try{
+        const skill = new Skill({
+            name: req.body.skillName,
+            achievedPoints: 0,
+            level: 0,
+            tasks: [],
+            owner: req.body.userId
+        })
+        
+        await skill.save()
+        return res.status(201).json({message: "Skill was created", skill})
+
+    }catch(e){
+        console.log(e)
+        res.status(500).json({message: "something was wrong"})
+    }
+})
+
 module.exports = router

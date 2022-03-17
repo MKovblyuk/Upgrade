@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {fetchSkills} from "../redux/actions/skillsActions"
 import { useHttp } from "../hooks/http.hook";
 import { AuthContext } from "../context/AuthContext";
+import { AddSkillForm } from "../components/skills/AddSkillForm";
 
 
 export const SkillsPage = () => {
@@ -16,6 +17,7 @@ export const SkillsPage = () => {
 
     useEffect(() => {
         if(!skills.length){
+            console.log("dispatch skills in SkillsPage")
             dispatch(fetchSkills(request, token))
         }
     },[request, token, dispatch, skills])
@@ -27,8 +29,11 @@ export const SkillsPage = () => {
                 loading 
                 ? 
                     <CircularProgress size={80} sx={{display: "block", margin: "0 auto", marginTop: "50px"}}/>
-                : 
-                    <SkillsList skills={skills}/> 
+                :   
+                    <div>
+                        <AddSkillForm/>
+                        <SkillsList skills={skills}/> 
+                    </div>
             }
         </div>
     )

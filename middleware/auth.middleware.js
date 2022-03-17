@@ -17,7 +17,7 @@ module.exports = (req, res, next) => {
         req.user = decoded
         next()
     } catch(e){
-        console.log(e)
+        console.log("Error in authmiddleware",e)
         res.status(401).json({message: "Authorization is absent"})
     }
 }
