@@ -48,4 +48,15 @@ router.post("/add", authMiddleware, async (req, res) => {
     }
 })
 
+router.delete("/", authMiddleware, async (req, res) => {
+    try{
+        await Skill.findByIdAndDelete(req.body.skillID)
+        // need check deleting
+        res.status(200).json({message: "Deleting was success"}) 
+    }catch(e){
+        console.log(e)
+        res.status(500).json({message: "something was wrong"})
+    }
+})
+
 module.exports = router

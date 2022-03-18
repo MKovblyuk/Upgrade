@@ -1,4 +1,4 @@
-import { ADD_SKILL, FETCH_SKILLS } from "../actionsTypes"
+import { ADD_SKILL, DELETE_SKILL, FETCH_SKILLS } from "../actionsTypes"
 
 const initialState = {
     skills: []
@@ -11,6 +11,8 @@ export const skillsReducer = (state = initialState, action) => {
             return {...state, skills: action.skills}
         case ADD_SKILL:
             return {...state, skills: [...state.skills, action.skill]}
+        case DELETE_SKILL:
+            return {...state, skills: state.skills.filter(e => e._id !== action.skillID)}
         default: 
             return state
     }
