@@ -2,6 +2,7 @@ const Router = require("express")
 const router = Router()
 const Skill = require("../models/Skill")
 const authMiddleware = require("../middleware/auth.middleware")
+const Task = require("../models/Task")
 
 const complexFunc = () => {
     let sum = 0
@@ -20,8 +21,42 @@ const complexFunc = () => {
 
 router.get("/", authMiddleware ,async (req, res) => {
     try{
-        const skills = await Skill.find({ower: req.user.userId})
+        const skills = await Skill.find({owner: req.user.userId})
+        
         complexFunc()
+
+        const sendSkills = []
+        skills.forEach(s => {
+            // const tasks = Task.find({owner: s._id})
+            const tasks = [
+                {
+                    _id: 2,
+                    name: "task 1",
+                    points: "1",
+                    owner: s._id
+                },
+                {
+                    _id: 33,
+                    name: "task 100",
+                    points: "100",
+                    owner: s._id
+                }
+            ]
+            
+            sendSkills.push({
+                _id: s._id,
+                name: s.name,
+                achievedPoints: s.achievedPoints,
+                level: s.level,
+                owner: s.owner,
+                tasks: tasks
+            })
+        })
+
+        //console.log(sendSkills)
+
+        return res.status(200).json(sendSkills)
+
         res.status(200).json(skills)
     }catch(e){
         console.log(e)
@@ -35,8 +70,7 @@ router.post("/add", authMiddleware, async (req, res) => {
             name: req.body.skillName,
             achievedPoints: 0,
             level: 0,
-            tasks: [],
-            owner: req.body.userId
+            owner: req.user.userId
         })
         
         await skill.save()

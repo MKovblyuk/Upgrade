@@ -5,3 +5,8 @@ export const CHANGE_SKILL = "SKILLS/CHANGE_SKILL"
 
 export const SHOW_LOADING = "APP/SHOW_LOADING"
 export const HIDE_LOADING = "APP/HIDE_LOADING"
+
+export const FETCH_TASKS = "TASKS/FETCH_TASKS"
+export const ADD_TASK = "TASKS/ADD_TASK"
+export const DELETE_TASK = "TASKS/DELETE_TASK"
+export const CHANGE_TASK = "TASKS/CHANGE_TASK"

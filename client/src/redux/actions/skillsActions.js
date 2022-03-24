@@ -38,10 +38,10 @@ export const fetchSkills = (request, token) => {
     }
 }
 
-export const addSkill = (request, token, userId, skillName) => {
+export const addSkill = (request, token, skillName) => {
     return async dispatch => {
         try{
-            const {skill} = await request("api/skills/add","POST", {skillName, userId}, {
+            const {skill} = await request("api/skills/add","POST", {skillName}, {
                 Authorization: `Bearer ${token}`
             })
 

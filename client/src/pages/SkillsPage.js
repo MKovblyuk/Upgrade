@@ -20,7 +20,15 @@ export const SkillsPage = () => {
             console.log("dispatch skills in SkillsPage")
             dispatch(fetchSkills(request, token))
         }
-    },[request, token, dispatch, skills])
+    },[])
+
+    useEffect(() => {
+        // let tasks = []
+        // skills.forEach(element => tasks = [...tasks, [...element.tasks]])
+        // console.log("tasks in use effect", tasks)
+
+ 
+    },[skills])
 
     
     return (

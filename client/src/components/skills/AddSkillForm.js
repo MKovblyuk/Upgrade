@@ -7,12 +7,12 @@ import {addSkill} from "../../redux/actions/skillsActions"
 export const AddSkillForm = () => {
     const dispatch = useDispatch()
     const {request} = useHttp()
-    const {token, userId} = useContext(AuthContext)
+    const {token} = useContext(AuthContext)
     const [skillName, setSkillName] = useState("")
     
     const addSkillHandler = (e) => {
         e.preventDefault()
-        dispatch(addSkill(request, token, userId, skillName))
+        dispatch(addSkill(request, token, skillName))
     }
 
     const inputHandler = (e) => {
