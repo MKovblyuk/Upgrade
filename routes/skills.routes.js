@@ -23,41 +23,56 @@ router.get("/", authMiddleware ,async (req, res) => {
     try{
         const skills = await Skill.find({owner: req.user.userId})
         
+        const ageregatedSkills = await Skill.aggregate([
+            {
+                $lookup: {
+                    from: "tasks",
+                    localField: "_id",
+                    foreignField: "owner",
+                    as: "tasks"
+                }
+            }
+        ])
+
+        // console.log("////////////////////////////////////////////////")
+        // console.log(ageregatedSkills)
+
         complexFunc()
 
-        const sendSkills = []
-        skills.forEach(s => {
-            // const tasks = Task.find({owner: s._id})
-            const tasks = [
-                {
-                    _id: 2,
-                    name: "task 1",
-                    points: "1",
-                    owner: s._id
-                },
-                {
-                    _id: 33,
-                    name: "task 100",
-                    points: "100",
-                    owner: s._id
-                }
-            ]
+        return res.status(200).json(ageregatedSkills)
+        // const sendSkills = []
+        // skills.forEach(s => {
+        //     // const tasks = Task.find({owner: s._id})
+        //     const tasks = [
+        //         {
+        //             _id: 2,
+        //             name: "task 1",
+        //             points: "1",
+        //             owner: s._id
+        //         },
+        //         {
+        //             _id: 33,
+        //             name: "task 100",
+        //             points: "100",
+        //             owner: s._id
+        //         }
+        //     ]
             
-            sendSkills.push({
-                _id: s._id,
-                name: s.name,
-                achievedPoints: s.achievedPoints,
-                level: s.level,
-                owner: s.owner,
-                tasks: tasks
-            })
-        })
+        //     sendSkills.push({
+        //         _id: s._id,
+        //         name: s.name,
+        //         achievedPoints: s.achievedPoints,
+        //         level: s.level,
+        //         owner: s.owner,
+        //         tasks: tasks
+        //     })
+        // })
 
-        //console.log(sendSkills)
+        // //console.log(sendSkills)
 
-        return res.status(200).json(sendSkills)
+        // return res.status(200).json(sendSkills)
 
-        res.status(200).json(skills)
+        // res.status(200).json(skills)
     }catch(e){
         console.log(e)
         res.status(500).json({message: "something was wrong"})

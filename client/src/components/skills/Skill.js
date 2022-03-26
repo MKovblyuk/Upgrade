@@ -5,7 +5,6 @@ import { useContext, useState } from "react"
 import {AuthContext} from "../../context/AuthContext"
 import { deleteSkill } from "../../redux/actions/skillsActions"
 import {useDispatch} from "react-redux"
-import { TasksList } from "../tasks/TasksList"
 import { SkillTasksComponent } from "./SkillTasksComponent"
 
 export const Skill = ({skill}) => {
