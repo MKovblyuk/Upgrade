@@ -1,5 +1,5 @@
 import { ADD_SKILL, DELETE_SKILL, FETCH_SKILLS } from "../actionsTypes"
-import { ADD_TASK, CHANGE_TASK, DELETE_TASK } from "../actionsTypes"
+import { ADD_TASK, UPDATE_TASK, DELETE_TASK } from "../actionsTypes"
 
 const initialState = {
     skills: []
@@ -20,7 +20,7 @@ export const skillsReducer = (state = initialState, action) => {
             const index = state.skills.findIndex(s => s._id === action.task.owner)
             skills[index] = {...skills[index], tasks: skills[index].tasks.filter(e => e._id !== action.task._id)}
             return {...state, skills}
-        case CHANGE_TASK: 
+        case UPDATE_TASK: 
             return state
         default: 
             return state
