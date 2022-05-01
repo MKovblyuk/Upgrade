@@ -97,6 +97,16 @@ router.post("/add", authMiddleware, async (req, res) => {
     }
 })
 
+router.post("/update", authMiddleware, async (req, res) => {
+    try{
+        await Skill.findByIdAndUpdate(req.body.skill._id, req.body.skill)
+        return res.status(200).json({message: "Skill was updated"})
+    }catch(e){
+        console.log(e)
+        res.status(500).json({message: "something was wrong"})
+    }
+})
+
 router.delete("/", authMiddleware, async (req, res) => {
     try{
         await Skill.findByIdAndDelete(req.body.skillID)
@@ -107,5 +117,7 @@ router.delete("/", authMiddleware, async (req, res) => {
         res.status(500).json({message: "something was wrong"})
     }
 })
+
+
 
 module.exports = router

@@ -1,4 +1,11 @@
-import {FETCH_SKILLS, ADD_SKILL, DELETE_SKILL} from "../actionsTypes"
+import {
+    FETCH_SKILLS, 
+    ADD_SKILL, 
+    DELETE_SKILL, 
+    UPDATE_SKILL, 
+    SHOW_UPDATE_SKILL_FORM, 
+    HIDE_UPDATE_SKILL_FORM
+} from "../actionsTypes"
 import {showLoading, hideLoading} from "./appActions"
 
 const fetchSkillsSuccess = (skills) => {
@@ -19,6 +26,13 @@ const deleteSkillSuccess = (skillID) => {
     return {
         type: DELETE_SKILL,
         skillID
+    }
+}
+
+const updateSkillSuccess = (skill) => {
+    return {
+        type: UPDATE_SKILL,
+        skill
     }
 }
 
@@ -56,12 +70,38 @@ export const deleteSkill = (request, token, skillID) => {
     return async dispatch => {
         try{
             await request("api/skills", "DELETE", {skillID}, {
-                Authorization: `Beare ${token}`
+                Authorization: `Bearer ${token}`
             })
             
             dispatch(deleteSkillSuccess(skillID))
         }catch(e){
             console.log("Error in deleteSkill:", e.message)
         }
+    }
+}
+
+export const updateSkill = (request, token, skill) => {
+    return async dispatch => {
+        try{
+            console.log('skill in action:',skill)
+            await request("api/skills/update", "POST", {skill},{
+                Authorization: `Bearer ${token}`
+            })
+            dispatch(updateSkillSuccess(skill))
+        }catch(e){
+            console.log("Error in updateSkill:",e.message)
+        }
+    }
+}
+
+export const showUpdateSkillForm = () => {
+    return {
+        type: SHOW_UPDATE_SKILL_FORM
+    }
+}
+
+export const hideUpdateSkillForm = () => {
+    return {
+        type: HIDE_UPDATE_SKILL_FORM
     }
 }

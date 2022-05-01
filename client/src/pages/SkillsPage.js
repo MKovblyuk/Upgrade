@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { SkillsList } from "../components/skills/SkillsList";
 import {CircularProgress} from "@mui/material"
 import { useDispatch, useSelector } from "react-redux";

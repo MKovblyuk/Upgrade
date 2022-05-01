@@ -1,4 +1,4 @@
-import {ADD_TASK, DELETE_TASK, CHANGE_TASK, FETCH_TASKS} from "../actionsTypes"
+import {ADD_TASK, DELETE_TASK, UPDATE_TASK, FETCH_TASKS} from "../actionsTypes"
 
 
 export const fetchTasksSuccess = (tasks) => {
@@ -35,7 +35,7 @@ export const addTask = (request, token, task) => {
             await request("api/tasks/add","POST", {task}, {
                 Authorization: `Bearer ${token}`
             })
-
+            
             dispatch(addTaskSuccess(task))
         } catch(e){
             console.log("Error in addTask",e.message)
@@ -64,6 +64,22 @@ export const deleteTask = (request, token, task) => {
     }
 }
 
-export const changeTask = () => {
+const updateTaskSuccess = (task) => {
+    return {
+        type: UPDATE_TASK,
+        task
+    }
+}
 
+export const updateTask = (request, token, task) => {
+    return async dispatch => {
+        try{
+            await request("api/tasks/update", "POST", {task}, {
+                Authorization: `Bearer ${token}`
+            })
+            dispatch(updateTaskSuccess(task))
+        }catch(e){
+            console.log("Error in updateTask:",e.message)
+        }
+    }
 }
