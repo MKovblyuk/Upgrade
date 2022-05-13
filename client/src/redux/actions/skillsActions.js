@@ -4,7 +4,9 @@ import {
     DELETE_SKILL, 
     UPDATE_SKILL, 
     SHOW_UPDATE_SKILL_FORM, 
-    HIDE_UPDATE_SKILL_FORM
+    HIDE_UPDATE_SKILL_FORM,
+    INCREASE_SKILL_LEVEL,
+    DECREASE_SKILL_LEVEL
 } from "../actionsTypes"
 import {showLoading, hideLoading} from "./appActions"
 
@@ -103,5 +105,51 @@ export const showUpdateSkillForm = () => {
 export const hideUpdateSkillForm = () => {
     return {
         type: HIDE_UPDATE_SKILL_FORM
+    }
+}
+
+
+
+const _increaseSkillLevel = (points, skillId) => {
+    return { 
+        type: INCREASE_SKILL_LEVEL,
+        points,
+        skillId
+    }
+}
+
+const _decreaseSkillLevel = (points, skillId) => {
+    return {
+        type: DECREASE_SKILL_LEVEL,
+        points,
+        skillId
+    }
+}
+
+export const increaseSkillLevel = (request, token, points, skillId) => {
+    return async dispatch => {
+        try{
+            await request("api/skills/increaseLevel", "POST", {points, skillId},{
+                Authorization: `Bearer ${token}`
+            })
+
+            dispatch(_increaseSkillLevel(points, skillId))
+        }catch(e){
+            console.log("Error in increase level skill:",e.message)
+        }
+    }
+}
+
+export const decreaseSkillLevel = (request, token, points, skillId) => {
+    return async dispatch => {
+        try{
+            await request("api/skills/decreaseLevel", "POST", {points, skillId},{
+                Authorization: `Bearer ${token}`
+            })
+
+            dispatch(_decreaseSkillLevel(points, skillId))
+        }catch(e){
+            console.log("Error in decrease level skill:",e.message)
+        }
     }
 }

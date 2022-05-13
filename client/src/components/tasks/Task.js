@@ -1,8 +1,9 @@
 import React, { useContext, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { AuthContext } from "../../context/AuthContext";
 import { useHttp } from "../../hooks/http.hook";
 import {deleteTask} from "../../redux/actions/tasksActions"
+import { addTodo } from "../../redux/actions/todoActions";
 import { UpdateTaskForm } from "./UpdateTaskForm";
 
 export const Task = ({task}) => {
@@ -21,7 +22,14 @@ export const Task = ({task}) => {
     }
 
     const addToToDoHandler = () => {
+        const newTodo = {
+            name: task.name,
+            points: task.points,
+            completed: false,
+            skillId: task.owner
+        }
 
+        dispatch(addTodo(request, token, newTodo))
     }
 
     const showUpdateTaskForm = () => {

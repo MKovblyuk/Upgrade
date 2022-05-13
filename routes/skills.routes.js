@@ -3,6 +3,7 @@ const router = Router()
 const Skill = require("../models/Skill")
 const authMiddleware = require("../middleware/auth.middleware")
 const Task = require("../models/Task")
+const {Types} = require("mongoose")
 
 const complexFunc = () => {
     let sum = 0
@@ -20,10 +21,11 @@ const complexFunc = () => {
 }
 
 router.get("/", authMiddleware ,async (req, res) => {
-    try{
-        const skills = await Skill.find({owner: req.user.userId})
-        
-        const ageregatedSkills = await Skill.aggregate([
+    try{ 
+        const skills = await Skill.aggregate([
+            {
+                $match: {owner: Types.ObjectId(req.user.userId)}
+            },
             {
                 $lookup: {
                     from: "tasks",
@@ -34,45 +36,9 @@ router.get("/", authMiddleware ,async (req, res) => {
             }
         ])
 
-        // console.log("////////////////////////////////////////////////")
-        // console.log(ageregatedSkills)
-
         complexFunc()
 
-        return res.status(200).json(ageregatedSkills)
-        // const sendSkills = []
-        // skills.forEach(s => {
-        //     // const tasks = Task.find({owner: s._id})
-        //     const tasks = [
-        //         {
-        //             _id: 2,
-        //             name: "task 1",
-        //             points: "1",
-        //             owner: s._id
-        //         },
-        //         {
-        //             _id: 33,
-        //             name: "task 100",
-        //             points: "100",
-        //             owner: s._id
-        //         }
-        //     ]
-            
-        //     sendSkills.push({
-        //         _id: s._id,
-        //         name: s.name,
-        //         achievedPoints: s.achievedPoints,
-        //         level: s.level,
-        //         owner: s.owner,
-        //         tasks: tasks
-        //     })
-        // })
-
-        // //console.log(sendSkills)
-
-        // return res.status(200).json(sendSkills)
-
-        // res.status(200).json(skills)
+        return res.status(200).json(skills)
     }catch(e){
         console.log(e)
         res.status(500).json({message: "something was wrong"})
@@ -118,6 +84,49 @@ router.delete("/", authMiddleware, async (req, res) => {
     }
 })
 
+router.post("/increaseLevel", authMiddleware, async (req, res) => {
+    try{
+        let skill = await Skill.findById(req.body.skillId)
+        let newAchievedPoints = skill.achievedPoints + Number(req.body.points)
+        let newLevel = skill.level
+
+        if(newAchievedPoints > 100){
+            newLevel++
+            newAchievedPoints -= 100
+        }
+
+        skill.achievedPoints = newAchievedPoints
+        skill.level = newLevel
+        skill.save()
+
+        res.status(200).json({message: "Increasing was success"})
+    }catch(e){
+        console.log(e)
+        res.status(500).json({message: "something was wrong"})
+    }
+})
+
+router.post("/decreaseLevel", authMiddleware, async (req, res) => {
+    try{
+        let skill = await Skill.findById(req.body.skillId)
+        let newAchievedPoints = skill.achievedPoints - Number(req.body.points)
+        let newLevel = skill.level
+
+        if(newAchievedPoints < 0){
+            newLevel--
+            newAchievedPoints += 100
+        }
+
+        skill.achievedPoints = newAchievedPoints
+        skill.level = newLevel >= 0 ? newLevel : 0
+        skill.save()
+
+        res.status(200).json({message: "Decreasing was success"})
+    }catch(e){
+        console.log(e)
+        res.status(500).json({message: "something was wrong"})
+    }
+})
 
 
 module.exports = router

@@ -14,9 +14,10 @@ export const SkillsPage = () => {
     const dispatch = useDispatch()
     const skills = useSelector(state => state.skillsReducer.skills)
     const loading = useSelector(state => state.appReducer.loading)
+    const wasFetched = useSelector(state => state.skillsReducer.wasFetched)
 
     useEffect(() => {
-        if(!skills.length){
+        if(!wasFetched){
             console.log("dispatch skills in SkillsPage")
             dispatch(fetchSkills(request, token))
         }
