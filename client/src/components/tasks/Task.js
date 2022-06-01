@@ -5,6 +5,9 @@ import { useHttp } from "../../hooks/http.hook";
 import {deleteTask} from "../../redux/actions/tasksActions"
 import { addTodo } from "../../redux/actions/todoActions";
 import { UpdateTaskForm } from "./UpdateTaskForm";
+import "../../css/tasks/task.css"
+import deleteIcon from "../../images/buttons_icons/delete_white_icon.png"
+import editIcon from "../../images/buttons_icons/edit_white_icon.png"
 
 export const Task = ({task}) => {
     const {request} = useHttp()
@@ -41,13 +44,19 @@ export const Task = ({task}) => {
     }
 
     return(
-        <div style={{backgroundColor: "yellow", margin: "5px", padding: "4px"}}>
+        <div className="Task">
             <UpdateTaskForm task={task} hideForm={hideUpdateTaskForm} visible={updateTaskFormVisibility}/>
-            Name:{task.name}<br/>
-            Points:{task.points}<br/>
-            <button onClick={deleteTaskHandler}>Delete</button>
-            <button onClick={editTaskHandler}>Edit</button>
-            <button onClick={addToToDoHandler}>Add To ToDo</button>
+            <div className="Content">
+                <div className="Info">
+                    <div><b>Name:</b> {task.name}</div>
+                    <div><b>Points:</b> {task.points}</div>
+                </div>
+                <div className="Buttons">
+                    <button onClick={deleteTaskHandler}><img src={deleteIcon} alt="delete_icon"/></button>
+                    <button onClick={editTaskHandler}><img src={editIcon} alt="edit_icon"/></button>
+                    <button className="AddToTodoBtn" onClick={addToToDoHandler}>Add To ToDo</button>
+                </div>
+            </div>
         </div>
     )
 }
