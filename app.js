@@ -25,6 +25,7 @@ app.use('/api/auth', require('./routes/auth.routes'))
 app.use("/api/skills", require('./routes/skills.routes'))
 app.use("/api/tasks", require("./routes/tasks.routes"))
 app.use('/api/todos', require("./routes/todo.routes"))
+app.use('/api/profile', require('./routes/profile.routes'))
 
 const PORT = config.get("port") || 5000
 

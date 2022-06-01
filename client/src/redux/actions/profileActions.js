@@ -1,13 +1,45 @@
 import {FETCH_PROFILE, UPDATE_PROFILE} from "../actionsTypes"
 
-export const updateProfile = () => {
+const _updateProfile = (profile) => {
     return {
-        type: UPDATE_PROFILE
+        type: UPDATE_PROFILE,
+        profile
     }
 }
 
-export const fetchProfile = () => {
+const _fetchProfile = (profile) => {
     return {
-        type: FETCH_PROFILE
+        type: FETCH_PROFILE,
+        profile
+    }
+}
+
+
+export const updateProfile = (request, token, profile) => {
+    return async dispatch => {
+        try{
+            await request("api/profile/update", "POST", {profile}, {
+                Authorization: `Bearer ${token}`
+            })
+
+            dispatch(_updateProfile(profile))
+        }catch(e){
+            console.log("Error in updateProfile:",e.message)
+        }
+    }
+}
+
+export const fetchProfile = (request, token) => {
+    return async dispatch => {
+        try{
+            const response = await request("api/profile", "GET", null, {
+                Authorization: `Bearer ${token}`
+            })
+            const profile = response[0]
+
+            dispatch(_fetchProfile(profile))
+        }catch(e){
+            console.log("Error in fetchProfile:",e.message)
+        }
     }
 }

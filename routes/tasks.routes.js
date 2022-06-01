@@ -38,9 +38,9 @@ router.post("/add", authMiddleware, async (req, res) => {
 router.post("/update", authMiddleware, async (req, res) => {
     try{
         console.log("try update task")
-        //const task = await Task.find(t => t._id === req.body.task._id)
+
         await Task.findByIdAndUpdate(req.body.task._id, req.body.task)
-        
+
         res.status(200).json({message: "task was updated"})
     }catch(e){
         res.status(500).json({message: "something was wrong"})
