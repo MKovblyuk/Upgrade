@@ -12,7 +12,9 @@ export const TasksPage = () => {
         console.log("in use effect in tasksPage //////////////////////////////////////")
         let tpmTasks = []
         skills.forEach(skill => {
-            skill.tasks.forEach(task => tpmTasks.push(task))
+            if(skill.tasks){
+                skill.tasks.forEach(task => tpmTasks.push(task))
+            }
         });
         setTasks(tpmTasks)
     },[skills])
