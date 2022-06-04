@@ -7,7 +7,6 @@ export const TodoLists = ({todos}) => {
     const uncompletedTodos = todos.filter(todo => !todo.completed)
     return(
         <div>
-            Todo list: <br/>
             <UncompletedTodoList todos={uncompletedTodos}/>
             <br/><br/>
             <CompletedTodoList todos={completedTodos}/>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import {TasksList} from "../components/tasks/TasksList"
-import "../css/tasksPage.css"
+import "../css/pages/tasksPage.css"
 
 export const TasksPage = () => {
     const skills = useSelector(state => state.skillsReducer.skills)

@@ -5,7 +5,7 @@ export const CompletedTodoList = ({todos}) => {
     const list = todos.map(todo => <CompletedTodo key={todo._id} todo={todo}/>)
     return(
         <div>
-            Completed todos <br/>
+            <b>Completed todos:</b><br/>
             {list}
         </div>
     )

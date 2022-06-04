@@ -1,0 +1,60 @@
+.Todo{
+    background-color: white;
+    font-size: 16px;
+    margin-top: 5px;
+    padding: 8px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Todo button{
+    border-radius: 100%;
+    margin-left: 10px;
+    border: none;
+    width: 35px;
+    height: 35px;
+}
+
+.Todo img{
+    max-width: 25px;
+    max-height: 25px;
+    padding-right: 2px;
+    padding-top: 2px;
+}
+
+.Todo .CompleteBtn{
+    background-color: rgb(46, 173, 46);
+}
+
+.Todo .CompleteBtn:hover{
+    background-color: rgb(46, 230, 46);
+}
+
+.Todo .CompleteBtn:active{
+    background-color: rgb(18, 134, 18);
+}
+
+.Todo .UncompleteBtn{
+    background-color: rgb(236, 178, 71);
+}
+
+.Todo .UncompleteBtn:hover{
+    background-color: rgb(255, 179, 38);
+}
+
+.Todo .UncompleteBtn:active{
+    background-color: rgb(165, 117, 29);
+}
+
+.Todo .DeleteBtn{
+    background-color: rgb(223, 41, 41);
+}
+
+.Todo .DeleteBtn:hover{
+    background-color: rgb(255, 17, 17);
+}
+
+.Todo .DeleteBtn:active{
+    background-color: rgb(133, 20, 20);
+}

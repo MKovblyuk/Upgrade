@@ -5,6 +5,7 @@ import { useHttp } from "../hooks/http.hook";
 import {CircularProgress} from "@mui/material";
 import { TodoLists } from "../components/todos/TodoLists";
 import { fetchTodos } from "../redux/actions/todoActions";
+import "../css/pages/todoPage.css"
 
 export const ToDoPage = () => {
     const {request} = useHttp()
@@ -22,7 +23,7 @@ export const ToDoPage = () => {
     },[])
 
     return (
-        <div>
+        <div className="TodoPage">
             {
                 loading
                 ?

@@ -14,6 +14,7 @@ export const UpdateTaskForm = ({task, hideForm, visible}) => {
     const submitHandler = (e) => {
         e.preventDefault()
         dispatch(updateTask(request, token, newTask))
+        hideForm()
     }
 
     const inputHandler = (e) => {

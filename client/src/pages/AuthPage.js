@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import {Button, Input, InputLabel} from "@mui/material"
-import "../css/authPage.css"
+import "../css/pages/authPage.css"
 import { useHttp } from "../hooks/http.hook";
 import {AuthContext} from "../context/AuthContext"
 import {useNavigate} from "react-router-dom"

@@ -6,7 +6,7 @@ import {fetchSkills} from "../redux/actions/skillsActions"
 import { useHttp } from "../hooks/http.hook";
 import { AuthContext } from "../context/AuthContext";
 import { AddSkillForm } from "../components/skills/AddSkillForm";
-import "../css/skillsPage.css"
+import "../css/pages/skillsPage.css"
 
 
 export const SkillsPage = () => {
