@@ -1,7 +1,43 @@
 .Skill{
-    background-color: darkkhaki;
+    /* background-color: rgb(184, 145, 185); */
+    background-color: white;
     width: 80%;
-    border-radius: 5px;
+    border-radius: 2px;
     margin: 5px 0;
-    padding: 5px;
+    color: rgb(16, 2, 22);
+}
+
+.Skill .Data{
+    padding: 10px;
+}
+
+.Skill .Data button{
+    margin-top: 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: rgb(190, 190, 190);
+    margin-right: 8px;
+}
+
+.Skill .Data button:hover{
+    background-color: rgb(202, 202, 202);
+}
+
+.Skill .Data button:active{
+    background-color: rgb(146, 146, 146);
+}
+
+.Skill .Data .TasksBtn{
+    font-size: 18px;
+    height: 30px;
+}
+
+.Skill .Data .Buttons{
+    display: flex;
+    align-items: center;
+}
+
+.Skill .Data button img{
+    max-width: 25px;
+    max-height: 25px;
 }

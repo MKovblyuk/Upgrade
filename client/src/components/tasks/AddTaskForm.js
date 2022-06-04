@@ -3,6 +3,8 @@ import {useDispatch} from "react-redux"
 import {addTask} from "../../redux/actions/tasksActions"
 import {useHttp} from "../../hooks/http.hook"
 import {AuthContext} from "../../context/AuthContext"
+import "../../css/tasks/addTaskForm.css"
+import plusIcon from "../../images/buttons_icons/plus_icon_dark_grey.png"
 
 export const AddTaskForm = ({owner}) => {
     const [task, setTask] = useState({
@@ -25,7 +27,7 @@ export const AddTaskForm = ({owner}) => {
     }
 
     return(
-        <form onSubmit={submitHandler}>
+        <form onSubmit={submitHandler} className="AddTaskFrom">
             <input 
                 placeholder="Name" 
                 value={task.name} 
@@ -40,7 +42,9 @@ export const AddTaskForm = ({owner}) => {
                 name="points" 
                 onChange={inputHandler}
             />
-            <button>Add</button>
+            <button>
+                <img src={plusIcon} alt="plus_icon"/>
+            </button>
         </form>
     )
 }

@@ -4,8 +4,8 @@
 
 .Task{
     background-color: white;
-    margin: 5px;
-    padding: 8px 4px;
+    margin: 5px 0;
+    padding: 8px 12px;
     color: rgb(16, 2, 22);
     font-size: 16px;
     min-width: 400px;

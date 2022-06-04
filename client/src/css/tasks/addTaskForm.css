@@ -1,0 +1,47 @@
+/* .AddTaskFrom input{
+    display: block;
+    width: 100px;
+}
+
+.AddTaskFrom button{
+    display: block;
+    width: 100px;
+} */
+
+.AddTaskFrom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px;
+    margin: 0;
+    width: 50%;
+    border: 6px solid white;
+}
+
+
+.AddTaskFrom input{
+    font-size: 16px;
+    height: 30px;
+    border-radius: 4px;
+    border: 2px;
+}
+
+.AddTaskFrom button{
+    border: none;
+    border-radius: 3px;
+    background-color: rgb(247, 247, 247);
+}
+
+.AddTaskFrom button:hover{
+    background-color: rgb(255, 255, 255);
+}
+
+.AddTaskFrom button:active{
+    background-color: rgb(206, 206, 206);
+}
+
+.AddTaskFrom button img{
+    max-width: 25px;
+    max-height: 25px;
+}

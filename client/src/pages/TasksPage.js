@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import {TasksList} from "../components/tasks/TasksList"
+import "../css/tasksPage.css"
 
 export const TasksPage = () => {
     const skills = useSelector(state => state.skillsReducer.skills)
@@ -17,8 +18,8 @@ export const TasksPage = () => {
     },[skills])
 
     return (
-        <div>
-            TasksPage<br/>
+        <div className="TasksPage">
+            <div className="PageName">Tasks</div>
             <TasksList tasks={tasks}/>
         </div>
     )

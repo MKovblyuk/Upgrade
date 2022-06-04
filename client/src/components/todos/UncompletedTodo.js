@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { AuthContext } from "../../context/AuthContext";
 import { useHttp } from "../../hooks/http.hook";
 import { completeTodo, deleteTodo } from "../../redux/actions/todoActions";
+import "../../css/todos/uncompletedTodo.css"
 
 export const UncompletedTodo = ({todo}) => {
     console.log("todo:",todo)
@@ -19,12 +20,16 @@ export const UncompletedTodo = ({todo}) => {
     }
 
     return(
-        <div style={{backgroundColor: "green", marginBottom: "5px"}}>
-            Name: {String(todo.name)} <br/>
-            Completed: {String(todo.completed)} <br/>
-            Points: {String(todo.points)} <br/>
-            <button onClick={completeHandler}>Complete</button>
-            <button onClick={deleteHandler}>Delete</button>
+        <div className="UncompletedTodo">
+            <div className="Info">
+                <b>Name:</b> {String(todo.name)} <br/>
+                <b>Completed:</b> {String(todo.completed)} <br/>
+                <b>Points:</b> {String(todo.points)} <br/>
+            </div>
+            <div className="Buttons">
+                <button onClick={completeHandler}>Complete</button>
+                <button onClick={deleteHandler}>Delete</button>
+            </div>
         </div>
     )
 }

@@ -1,3 +1,4 @@
+import React from "react"
 import { Skill } from "./Skill"
 import "../../css/skills/skillsList.css"
 

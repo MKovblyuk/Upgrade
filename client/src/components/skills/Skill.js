@@ -1,3 +1,4 @@
+import React from "react"
 import "../../css/skills/skill.css"
 import { ProgressBar } from "./ProgressBar"
 import {useHttp} from "../../hooks/http.hook"
@@ -7,6 +8,8 @@ import { deleteSkill } from "../../redux/actions/skillsActions"
 import {useDispatch} from "react-redux"
 import { SkillTasksComponent } from "./SkillTasksComponent"
 import { UpdateSkillForm } from "./UpdateSkillForm"
+import deleteIcon from "../../images/buttons_icons/delete_white_icon.png"
+import editIcon from "../../images/buttons_icons/edit_white_icon.png"
 
 export const Skill = ({skill}) => {
     const {request} = useHttp()
@@ -37,12 +40,22 @@ export const Skill = ({skill}) => {
 
     return (
         <div className="Skill">
-            <UpdateSkillForm skill={skill} hideForm={hideUpdateSkillForm} visible={updateSkillFormVisibility}/>
-            Name: {skill.name} <br/>
-            <ProgressBar value={skill.achievedPoints} currentLevel={skill.level}/>
-            <button onClick={deleteHandler}>Delete</button>
-            <button onClick={tasksVisibilityHandler}>Tasks</button>
-            <button onClick={showUpdateSkillForm}>Edit</button>
+            <div className="Data">
+                <UpdateSkillForm skill={skill} hideForm={hideUpdateSkillForm} visible={updateSkillFormVisibility}/>
+                <b>Name:</b> {skill.name} <br/>
+                <ProgressBar value={skill.achievedPoints} currentLevel={skill.level}/>
+                <div className="Buttons">
+                    <button onClick={deleteHandler}>
+                        <img src={deleteIcon} alt="delete_icon"/>
+                    </button>
+                    <button onClick={showUpdateSkillForm}>
+                        <img src={editIcon} alt="edit_icon"/>
+                    </button>
+                    <button onClick={tasksVisibilityHandler} className="TasksBtn">
+                        Tasks
+                    </button>
+                </div>
+            </div>
             <SkillTasksComponent tasks={skill.tasks} owner={skill._id} visible={tasksVisibility}/>
         </div>
     )

@@ -1,6 +1,7 @@
 header {
     display: flex;
     justify-content: end;
+    background-color: rgb(85, 22, 110);
 }
 
 header a{

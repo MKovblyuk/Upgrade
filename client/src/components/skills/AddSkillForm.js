@@ -3,6 +3,8 @@ import { useDispatch } from "react-redux";
 import { AuthContext } from "../../context/AuthContext";
 import { useHttp } from "../../hooks/http.hook";
 import {addSkill} from "../../redux/actions/skillsActions"
+import "../../css/skills/addSkillForm.css"
+import plusIcon from "../../images/buttons_icons/plus_icon_dark_grey.png"
 
 export const AddSkillForm = () => {
     const dispatch = useDispatch()
@@ -20,11 +22,14 @@ export const AddSkillForm = () => {
     } 
 
     return(
-        <form onSubmit={addSkillHandler}>
-            <input placeholder="Name" required onChange={inputHandler} value={skillName}/>
-            <button type="submit">
-                Add Skill
-            </button>
+        <form onSubmit={addSkillHandler} className="AddSkillForm">
+            <div className="FormHeader">Add Skill</div>
+            <div className="ActiveElements">
+                <input placeholder="Name" required onChange={inputHandler} value={skillName}/>
+                <button type="submit">
+                    <img src={plusIcon} alt="plusIcon"/>
+                </button>
+            </div>
         </form>
     )
 }

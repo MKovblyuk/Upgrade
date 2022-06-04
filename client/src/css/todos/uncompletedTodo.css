@@ -1,0 +1,8 @@
+.UncompletedTodo{
+    margin-bottom: 5px;
+    background-color: rgb(240, 243, 72);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 13px 8px;
+}

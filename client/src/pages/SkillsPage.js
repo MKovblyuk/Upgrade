@@ -6,6 +6,7 @@ import {fetchSkills} from "../redux/actions/skillsActions"
 import { useHttp } from "../hooks/http.hook";
 import { AuthContext } from "../context/AuthContext";
 import { AddSkillForm } from "../components/skills/AddSkillForm";
+import "../css/skillsPage.css"
 
 
 export const SkillsPage = () => {
@@ -33,7 +34,7 @@ export const SkillsPage = () => {
 
     
     return (
-        <div>
+        <div className="SkillsPage">
             {
                 loading 
                 ? 
