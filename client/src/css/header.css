@@ -1,9 +1,75 @@
 header {
     display: flex;
-    justify-content: end;
-    background-color: rgb(85, 22, 110);
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(129, 46, 161);
+    padding: 5px 5px;
 }
 
 header a{
     text-decoration: none;
+}
+
+header button{
+    background-color: rgb(251, 251, 251);
+    font-size: 18px;
+    border-radius: 8px;
+    color: rgb(72, 13, 95);
+    padding: 1px;
+}
+
+header button:hover{
+    background-color: white;
+    color: rgb(167, 17, 226);
+}
+
+header button:active{
+    background-color: rgb(190, 143, 188);
+}
+
+header button .BtnName:hover{
+    border: 2px solid rgb(167, 17, 226);
+}
+
+header button .BtnName{
+    height: 100%;
+    width: 100%;
+    border: 2px solid rgb(129, 46, 161);
+    border-radius: 6px;
+    padding: 5px 12px;
+}
+
+header .LogoImg{
+    width: 60px;
+    height: 60px;
+    margin-left: 15px;
+}
+
+header .FirstPart{
+    background-color: white;
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .SecondPart{
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .FirstPart .LogoText{
+    color: rgb(129, 46, 161);
+}
+
+header .SecondPart .LogoText{
+    color: white;
+}
+
+header .LogoText{
+    font-size: 42px;
+    font-weight: bold;
+    font-family: Roboto;
 }
