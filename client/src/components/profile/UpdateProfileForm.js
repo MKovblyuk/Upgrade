@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { AuthContext } from "../../context/AuthContext";
 import { useHttp } from "../../hooks/http.hook";
 import { updateProfile } from "../../redux/actions/profileActions";
+import "../../css/updateForm.css"
 
 export const UpdateProfileForm = ({profile, hideForm, visible}) => {
     const [newProfile, setNewProfile] = useState(profile)
@@ -13,6 +14,7 @@ export const UpdateProfileForm = ({profile, hideForm, visible}) => {
     const submitHandler = (e) => {
         e.preventDefault()
         dispatch(updateProfile(request, token, newProfile))
+        hideForm()
     }
 
     const inputHandler = (e) => {
@@ -21,22 +23,33 @@ export const UpdateProfileForm = ({profile, hideForm, visible}) => {
 
     return(
         visible ? 
-            <form onSubmit={submitHandler}>
-                <input
-                    name="name"
-                    value={newProfile.name}
-                    onChange={inputHandler}
-                    placeholder="Name"
-                />
-                <input
-                    name="description"
-                    value={newProfile.description}
-                    onChange={inputHandler}
-                    placeholder="Description"
-                />
-                <button type="submit">Save</button>
-                <button onClick={hideForm}>Cancel</button>
-            </form>
+            <div className="TransparentBg">
+                <form onSubmit={submitHandler} className="UpdateForm">
+                    <input
+                        name="name"
+                        value={newProfile.name}
+                        onChange={inputHandler}
+                        placeholder="Name"
+                        required
+                    />
+                    <input
+                        name="description"
+                        value={newProfile.description}
+                        onChange={inputHandler}
+                        placeholder="Description"
+                    />
+                    <input
+                        name="hobby"
+                        value={newProfile.hobby}
+                        onChange={inputHandler}
+                        placeholder="Hobby"
+                    />
+                    <div className="Buttons">
+                        <button type="submit">Save</button>
+                        <button onClick={hideForm}>Cancel</button>
+                    </div>
+                </form>
+            </div>
         : null
     )
 }

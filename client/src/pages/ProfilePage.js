@@ -4,6 +4,7 @@ import { fetchProfile } from "../redux/actions/profileActions";
 import {useHttp} from "../hooks/http.hook"
 import {AuthContext} from "../context/AuthContext"
 import { UpdateProfileForm } from "../components/profile/UpdateProfileForm";
+import "../css/pages/profilePage.css"
 
 export const ProfilePage = () => {
     console.log("in profile page")
@@ -30,11 +31,17 @@ export const ProfilePage = () => {
     }
 
     return (
-        <div>
-            {/* <div>image: <img src=""/></div> */}
-            <div>
-                Name: {profile.name}<br/>
-                Description: {profile.description}<br/>
+        <div className="ProfilePage">
+            <div className="Info">
+                <div>
+                    <b>Name:</b>{profile.name}<br/>
+                </div>
+                <div>
+                    <b>Short Description:</b> {profile.description}<br/>
+                </div>
+                <div>
+                    <b>Hobby:</b> {profile.hobby}<br/>
+                </div>           
             </div>
 
             <button onClick={showUpdateProfileForm}>Edit</button>

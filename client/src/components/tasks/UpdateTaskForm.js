@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux"
 import { AuthContext } from "../../context/AuthContext"
 import {useHttp} from "../../hooks/http.hook"
 import { updateTask } from "../../redux/actions/tasksActions";
-import "../../css/skills/updateForm.css"
+import "../../css/updateForm.css"
 
 export const UpdateTaskForm = ({task, hideForm, visible}) => {
     const {request} = useHttp()
@@ -30,12 +30,14 @@ export const UpdateTaskForm = ({task, hideForm, visible}) => {
                         name="name"
                         value={newTask.name}
                         onChange={inputHandler}
+                        required
                     />
                     <input
                         name="points"
                         value={newTask.points}
                         onChange={inputHandler}
                         type="number"
+                        required
                     />
                     <div className="Buttons">
                         <button type="submit">Save</button>
