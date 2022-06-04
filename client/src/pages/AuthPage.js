@@ -49,48 +49,50 @@ export const AuthPage = () => {
     }
 
     return (
-        <form>
-            <h2>Authorization</h2>
-            <InputLabel htmlFor="email" className="inputLabel">Email</InputLabel>
-            <Input 
-                placeholder="Enter your email" 
-                required={true}
-                id="email"
-                onChange={changeHandler}
-            />
+        <div className="AuthPage">
+            <form>
+                <h2>Authorization</h2>
+                <InputLabel htmlFor="email" className="inputLabel">Email</InputLabel>
+                <Input 
+                    placeholder="Enter your email" 
+                    required={true}
+                    id="email"
+                    onChange={changeHandler}
+                />
 
-            <InputLabel htmlFor="password">Password</InputLabel>
-            <Input
-                placeholder="Enter your password"
-                required={true}
-                id="password"
-                type="password"
-                onChange={changeHandler}
-            />
+                <InputLabel htmlFor="password">Password</InputLabel>
+                <Input
+                    placeholder="Enter your password"
+                    required={true}
+                    id="password"
+                    type="password"
+                    onChange={changeHandler}
+                />
 
-            <div className="WarningText">
-                {warningText}
-            </div>
+                <div className="WarningText">
+                    {warningText}
+                </div>
 
-            <div className="buttons">
-                <Button 
-                    className="btnLogin"  
-                    variant="contained" 
-                    color="success"
-                    onClick={loginHandler}
-                >
-                    Log In
-                </Button>
+                <div className="buttons">
+                    <Button 
+                        className="btnLogin"  
+                        variant="contained" 
+                        color="success"
+                        onClick={loginHandler}
+                    >
+                        Log In
+                    </Button>
 
-                <Button 
-                    className="btnRegister"  
-                    variant="contained" 
-                    color="primary"
-                    onClick={registerHandler}
-                >
-                    Register
-                </Button>
-            </div>
-        </form>
+                    <Button 
+                        className="btnRegister"  
+                        variant="contained" 
+                        color="primary"
+                        onClick={registerHandler}
+                    >
+                        Register
+                    </Button>
+                </div>
+            </form>
+        </div>
     )
 }
