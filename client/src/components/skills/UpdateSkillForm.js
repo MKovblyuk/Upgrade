@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux"
 import { AuthContext } from "../../context/AuthContext"
 import {useHttp} from "../../hooks/http.hook"
 import { updateSkill } from "../../redux/actions/skillsActions"
+import "../../css/skills/updateForm.css"
 
 export const UpdateSkillForm = ({skill,hideForm, visible}) => {
     const {request} = useHttp()
@@ -20,12 +21,16 @@ export const UpdateSkillForm = ({skill,hideForm, visible}) => {
     }
 
     return visible ? 
-        <form onSubmit={saveHandler}>
-            UpdateSkillForm<br/>
-            <input name="name" onChange={inputHandler} value={newSkill.name}/>
-            <button type="submit">Save</button>
-            <button onClick={hideForm}>Cancel</button>
-        </form>
+        <div className="TransparentBg">
+            <form onSubmit={saveHandler} className="UpdateForm">
+                <b>UpdateSkillForm</b><br/>
+                <input name="name" onChange={inputHandler} value={newSkill.name}/>
+                <div className="Buttons">
+                    <button type="submit">Save</button>
+                    <button onClick={hideForm}>Cancel</button>
+                </div>
+            </form>
+        </div>
     : null
 
 }

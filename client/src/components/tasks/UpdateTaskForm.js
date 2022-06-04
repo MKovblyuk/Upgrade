@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux"
 import { AuthContext } from "../../context/AuthContext"
 import {useHttp} from "../../hooks/http.hook"
 import { updateTask } from "../../redux/actions/tasksActions";
+import "../../css/skills/updateForm.css"
 
 export const UpdateTaskForm = ({task, hideForm, visible}) => {
     const {request} = useHttp()
@@ -21,20 +22,26 @@ export const UpdateTaskForm = ({task, hideForm, visible}) => {
 
     return(
         visible ?
-            <form onSubmit={submitHandler}>
-                <input
-                    name="name"
-                    value={newTask.name}
-                    onChange={inputHandler}
-                />
-                <input
-                    name="points"
-                    value={newTask.points}
-                    onChange={inputHandler}
-                />
-                <button type="submit">Save</button>
-                <button onClick={hideForm}>Cancel</button>
-            </form>
+            <div className="TransparentBg">
+                <form onSubmit={submitHandler} className="UpdateForm">
+                    <b>UpdateTaskForm</b><br/>
+                    <input
+                        name="name"
+                        value={newTask.name}
+                        onChange={inputHandler}
+                    />
+                    <input
+                        name="points"
+                        value={newTask.points}
+                        onChange={inputHandler}
+                        type="number"
+                    />
+                    <div className="Buttons">
+                        <button type="submit">Save</button>
+                        <button onClick={hideForm}>Cancel</button>
+                    </div>
+                </form>
+            </div>
         : null
     )
 }
