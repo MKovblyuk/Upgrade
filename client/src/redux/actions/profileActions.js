@@ -18,11 +18,13 @@ const _fetchProfile = (profile) => {
 export const updateProfile = (request, token, profile) => {
     return async dispatch => {
         try{
-            await request("api/profile/update", "POST", {profile}, {
+            const {response_profile} = await request("api/profile/update", "POST", {profile}, {
                 Authorization: `Bearer ${token}`
             })
 
-            dispatch(_updateProfile(profile))
+            console.log("profile in update profile", response_profile)
+
+            dispatch(_updateProfile(response_profile))
         }catch(e){
             console.log("Error in updateProfile:",e.message)
         }
@@ -36,6 +38,10 @@ export const fetchProfile = (request, token) => {
                 Authorization: `Bearer ${token}`
             })
             const profile = response[0]
+
+            console.log("in fethc profile")
+            console.log("response[0]:",response[0])
+            console.log("prse response[0]:", {...response[0]})
 
             dispatch(_fetchProfile(profile))
         }catch(e){

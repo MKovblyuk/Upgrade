@@ -29,24 +29,24 @@ export const UpdateProfileForm = ({profile, hideForm, visible}) => {
                         name="name"
                         value={newProfile.name}
                         onChange={inputHandler}
-                        placeholder="Name"
+                        placeholder="Ім'я"
                         required
                     />
                     <input
                         name="description"
                         value={newProfile.description}
                         onChange={inputHandler}
-                        placeholder="Description"
+                        placeholder="Опис"
                     />
                     <input
                         name="hobby"
                         value={newProfile.hobby}
                         onChange={inputHandler}
-                        placeholder="Hobby"
+                        placeholder="Захоплення"
                     />
                     <div className="Buttons">
-                        <button type="submit">Save</button>
-                        <button onClick={hideForm}>Cancel</button>
+                        <button type="submit">Зберегти</button>
+                        <button onClick={hideForm}>Відмінити</button>
                     </div>
                 </form>
             </div>

@@ -42,7 +42,7 @@ export const Skill = ({skill}) => {
         <div className="Skill">
             <div className="Data">
                 <UpdateSkillForm skill={skill} hideForm={hideUpdateSkillForm} visible={updateSkillFormVisibility}/>
-                <b>Name:</b> {skill.name} <br/>
+                <b>Назва:</b> {skill.name} <br/>
                 <ProgressBar value={skill.achievedPoints} currentLevel={skill.level}/>
                 <div className="Buttons">
                     <button onClick={deleteHandler}>
@@ -52,7 +52,7 @@ export const Skill = ({skill}) => {
                         <img src={editIcon} alt="edit_icon"/>
                     </button>
                     <button onClick={tasksVisibilityHandler} className="TasksBtn">
-                        Tasks
+                        Завдання
                     </button>
                 </div>
             </div>

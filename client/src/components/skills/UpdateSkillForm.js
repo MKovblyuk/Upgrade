@@ -23,11 +23,11 @@ export const UpdateSkillForm = ({skill,hideForm, visible}) => {
     return visible ? 
         <div className="TransparentBg">
             <form onSubmit={saveHandler} className="UpdateForm">
-                <b>UpdateSkillForm</b><br/>
+                <b>Редагування Навика</b><br/>
                 <input name="name" onChange={inputHandler} value={newSkill.name} required/>
                 <div className="Buttons">
-                    <button type="submit">Save</button>
-                    <button onClick={hideForm}>Cancel</button>
+                    <button type="submit">Зберегти</button>
+                    <button onClick={hideForm}>Відмінити</button>
                 </div>
             </form>
         </div>

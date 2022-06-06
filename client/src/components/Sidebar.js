@@ -14,28 +14,28 @@ export const Sidebar = () => {
                 <NavLink to="profile">
                     <button>
                         <img src={profile_icon} alt="profile_icon"/>
-                        <div>Profile</div>
+                        <div>Профіль</div>
                     </button>
                 </NavLink>
 
                 <NavLink to="skills">
                     <button>
                         <img src={skills_icon} alt="skills_icon"/>
-                        <div>Skills</div>
+                        <div>Навички</div>
                     </button>
                 </NavLink>
 
                 <NavLink to="tasks">
                     <button>
                         <img src={tasks_icon} alt="tasks_icon"/>
-                        <div>Tasks</div>
+                        <div>Завдання</div>
                     </button>
                 </NavLink>
 
                 <NavLink to="todo">
                     <button>
                         <img src={todo_icon} alt="todo_icon"/>
-                        <div>Todo</div>
+                        <div>Виконання</div>
                     </button>
                 </NavLink>
         </div>

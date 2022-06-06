@@ -30,21 +30,22 @@ export const ProfilePage = () => {
         setUpdateProfileFormVisibility(false)
     }
 
+
     return (
         <div className="ProfilePage">
             <div className="Info">
                 <div>
-                    <b>Name:</b>{profile.name}<br/>
+                    <b>Ім'я: </b>{profile ? profile.name : ""}<br/>
                 </div>
                 <div>
-                    <b>Short Description:</b> {profile.description}<br/>
+                    <b>Короткий опис: </b> {profile ? profile.description : ""}<br/>
                 </div>
                 <div>
-                    <b>Hobby:</b> {profile.hobby}<br/>
+                    <b>Захоплення: </b> {profile ? profile.hobby : ""}<br/>
                 </div>           
             </div>
 
-            <button onClick={showUpdateProfileForm}>Edit</button>
+            <button onClick={showUpdateProfileForm}>Редагувати</button>
 
             <UpdateProfileForm 
                 profile={profile} 

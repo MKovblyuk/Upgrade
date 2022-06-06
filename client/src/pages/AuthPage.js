@@ -51,18 +51,18 @@ export const AuthPage = () => {
     return (
         <div className="AuthPage">
             <form>
-                <h2>Authorization</h2>
+                <h2>Авторизація</h2>
                 <InputLabel htmlFor="email" className="inputLabel">Email</InputLabel>
                 <Input 
-                    placeholder="Enter your email" 
+                    placeholder="Введіть ваш email" 
                     required={true}
                     id="email"
                     onChange={changeHandler}
                 />
 
-                <InputLabel htmlFor="password">Password</InputLabel>
+                <InputLabel htmlFor="password" sx={{padding: 0}}>Пароль</InputLabel>
                 <Input
-                    placeholder="Enter your password"
+                    placeholder="Введіть ваш пароль"
                     required={true}
                     id="password"
                     type="password"
@@ -80,7 +80,7 @@ export const AuthPage = () => {
                         color="success"
                         onClick={loginHandler}
                     >
-                        Log In
+                        Увійти
                     </Button>
 
                     <Button 
@@ -88,8 +88,9 @@ export const AuthPage = () => {
                         variant="contained" 
                         color="primary"
                         onClick={registerHandler}
+                        sx={{marginTop: "10px"}}
                     >
-                        Register
+                        Зареєструватися
                     </Button>
                 </div>
             </form>

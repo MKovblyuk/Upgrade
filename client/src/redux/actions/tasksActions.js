@@ -33,11 +33,12 @@ const addTaskSuccess = (task) => {
 export const addTask = (request, token, task) => {
     return async dispatch => {
         try{
-            await request("api/tasks/add","POST", {task}, {
+            console.log("task in add task1:",task)
+            const {response_task} = await request("api/tasks/add","POST", {task}, {
                 Authorization: `Bearer ${token}`
             })
-            
-            dispatch(addTaskSuccess(task))
+            console.log("task in add task2:",response_task)
+            dispatch(addTaskSuccess(response_task))
         } catch(e){
             console.log("Error in addTask",e.message)
         }  

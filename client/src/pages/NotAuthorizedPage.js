@@ -9,10 +9,10 @@ export const NotAuthorizedPage = () => {
             <div className="Message">
                 <img src={notAuthorizedIcon} alt="message_info"/>
                 <div className="MessageText">
-                    To use functions on this site you need to register
+                    Щоб використовувати функціонал цього додатку вам необхідно Увійти
                 </div>
                 <NavLink to="auth">
-                    <button>Log In</button>
+                    <button>Увійти</button>
                 </NavLink>
             </div>
         </div>

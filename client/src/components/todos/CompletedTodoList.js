@@ -10,7 +10,7 @@ export const CompletedTodoList = ({todos}) => {
 
     return(
         <div>
-            <b>Completed todos:</b><br/>
+            <b>Завершені завдання:</b><br/>
             {list}
         </div>
     )

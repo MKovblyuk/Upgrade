@@ -24,7 +24,7 @@ export const Header = () => {
                         <button 
                             className="LoginBtn"
                         >
-                            <div className="BtnName">Log In</div>
+                            <div className="BtnName">Увійти</div>
                         </button>
                     </NavLink>
 
@@ -32,7 +32,7 @@ export const Header = () => {
                         onClick={authContext.logout} 
                         className="LogoutBtn"
                     >
-                        <div className="BtnName">Log Out</div>
+                        <div className="BtnName">Вийти</div>
                     </button>
                 </div>
             </div>

@@ -18,7 +18,7 @@ router.post(
             if(!errors.isEmpty()){
                 return res.status(400).json({
                     errors: errors.array(),
-                    message: "Incorrect data during registration"
+                    message: "Некоректний email або пароль (пароль має містити більше 6 символів)"
                 })
             }
 
@@ -27,7 +27,7 @@ router.post(
             const candidate = await User.findOne({email})
 
             if(candidate){
-                return res.status(400).json({message: "Current user exist"})
+                return res.status(400).json({message: "Користувач вже існує"})
             }
 
             const saltRounds = 10
@@ -36,7 +36,7 @@ router.post(
             const user = new User({email, password: hashedPassword})
             await user.save()
 
-            return res.status(201).json({message: "User has been created"})
+            return res.status(201).json({message: "Користувач був доданий"})
 
         } catch(e){
             return res.status(500).json({message: "something was wrong"})
@@ -54,25 +54,25 @@ router.post(
             if(!errors.isEmpty()){
                 return res.status(400).json({
                     errors: errors.array(),
-                    message: "Incorrect data"
+                    message: "Некоректні дані"
                 })
             }
 
             const {email, password} = req.body
             const user = await User.findOne({email})
             if(!user){
-                return res.status(400).json({message: "User does not exist"})
+                return res.status(400).json({message: "Користувач не існує"})
             }
 
             const isMatch = await bcrypt.compare(password, user.password)
             if(!isMatch){
-                return res.status(400).json({message: "Incorrect password"})
+                return res.status(400).json({message: "Некоректний пароль"})
             }
 
             const token = jwt.sign(
                 {userId: user.id},
                 config.get("jwtSecret"),
-                {expiresIn: "1h"}
+                {expiresIn: "3h"}
             )
             
             return res.json({token, userId: user.id})

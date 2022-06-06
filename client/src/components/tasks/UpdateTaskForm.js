@@ -25,7 +25,7 @@ export const UpdateTaskForm = ({task, hideForm, visible}) => {
         visible ?
             <div className="TransparentBg">
                 <form onSubmit={submitHandler} className="UpdateForm">
-                    <b>UpdateTaskForm</b><br/>
+                    <b>Редагування Завдання</b><br/>
                     <input
                         name="name"
                         value={newTask.name}
@@ -40,8 +40,8 @@ export const UpdateTaskForm = ({task, hideForm, visible}) => {
                         required
                     />
                     <div className="Buttons">
-                        <button type="submit">Save</button>
-                        <button onClick={hideForm}>Cancel</button>
+                        <button type="submit">Зберегти</button>
+                        <button onClick={hideForm}>Відмінити</button>
                     </div>
                 </form>
             </div>

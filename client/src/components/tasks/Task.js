@@ -48,13 +48,13 @@ export const Task = ({task}) => {
             <UpdateTaskForm task={task} hideForm={hideUpdateTaskForm} visible={updateTaskFormVisibility}/>
             <div className="Content">
                 <div className="Info">
-                    <div><b>Name:</b> {task.name}</div>
-                    <div><b>Points:</b> {task.points}</div>
+                    <div><b>Назва:</b> {task.name}</div>
+                    <div><b>Бали:</b> {task.points}</div>
                 </div>
                 <div className="Buttons">
                     <button onClick={deleteTaskHandler}><img src={deleteIcon} alt="delete_icon"/></button>
                     <button onClick={editTaskHandler}><img src={editIcon} alt="edit_icon"/></button>
-                    <button className="AddToTodoBtn" onClick={addToToDoHandler}>Add To ToDo</button>
+                    <button className="AddToTodoBtn" onClick={addToToDoHandler}>Додати до списку виконання</button>
                 </div>
             </div>
         </div>

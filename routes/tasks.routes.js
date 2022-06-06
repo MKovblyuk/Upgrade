@@ -17,6 +17,7 @@ router.get("/", authMiddleware, async (req, res) => {
 router.delete("/",authMiddleware, async (req, res) => {
     try{
         console.log("in deleteing task")
+        await Task.findByIdAndDelete(req.body.task._id)
         res.status(200).json({message: "task was deleted"})
     }catch(e){
         res.status(500).json({message: "something was wrong"})
@@ -27,7 +28,7 @@ router.post("/add", authMiddleware, async (req, res) => {
     try{
         const task = new Task(req.body.task)
         await task.save()
-        res.status(200).json({message: "task was added"})
+        res.status(200).json({message: "task was added",response_task: task})
     }catch(e){
         res.status(500).json({message: "something was wrong"})
     }

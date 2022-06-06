@@ -10,7 +10,7 @@ export const UncompletedTodoList = ({todos}) => {
 
     return(
         <div>
-            <b>Uncompleted todos:</b><br/>
+            <b>Незавершені завдання:</b><br/>
             {list}
         </div>
     )

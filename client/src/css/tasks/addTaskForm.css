@@ -15,10 +15,17 @@
     align-items: center;
     padding: 4px;
     margin: 0;
-    width: 50%;
+    width: 70%;
     border: 6px solid white;
 }
 
+.AddTaskFrom .NameInput{
+    width: 60%;
+}
+
+.AddTaskFrom .PointsInput{
+    width: 20%;
+}
 
 .AddTaskFrom input{
     font-size: 16px;

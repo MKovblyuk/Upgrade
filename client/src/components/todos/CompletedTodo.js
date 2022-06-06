@@ -24,9 +24,8 @@ export const CompletedTodo = ({todo}) => {
     return(
         <div className="CompletedTodo Todo">
             <div className="Info">
-                Name: {String(todo.name)} <br/>
-                Completed: {String(todo.completed)} <br/>
-                Points: {String(todo.points)} <br/>
+                Назва: {String(todo.name)} <br/>
+                Бали: {String(todo.points)} <br/>
             </div>
             <div className="Buttons">
                 <button onClick={uncompleteHandler} className="UncompleteBtn">

@@ -23,9 +23,9 @@ export const AddSkillForm = () => {
 
     return(
         <form onSubmit={addSkillHandler} className="AddSkillForm">
-            <div className="FormHeader">Add Skill</div>
+            <div className="FormHeader">Додати Навик</div>
             <div className="ActiveElements">
-                <input placeholder="Name" required onChange={inputHandler} value={skillName}/>
+                <input placeholder="Назва" required onChange={inputHandler} value={skillName}/>
                 <button type="submit">
                     <img src={plusIcon} alt="plusIcon"/>
                 </button>

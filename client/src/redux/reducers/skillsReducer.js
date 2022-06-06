@@ -27,7 +27,13 @@ export const skillsReducer = (state = initialState, action) => {
             let skills = [...state.skills]
             const index = skills.findIndex(s => s._id === action.task.owner)
 
-            skills[index].tasks = [...skills[index].tasks, action.task]
+            if(skills[index].tasks === undefined){
+                skills[index] = {...skills[index],tasks: [action.task]}
+            }
+            else{
+                skills[index].tasks = [...skills[index].tasks, action.task]
+            }
+            
             return {...state, skills}
         }
         case DELETE_TASK: {

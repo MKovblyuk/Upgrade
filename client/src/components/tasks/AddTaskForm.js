@@ -29,18 +29,21 @@ export const AddTaskForm = ({owner}) => {
     return(
         <form onSubmit={submitHandler} className="AddTaskFrom">
             <input 
-                placeholder="Name" 
+                placeholder="Назва" 
                 value={task.name} 
                 name="name" 
                 onChange={inputHandler} 
                 required
+                className="NameInput"
+                maxLength="50"
             />
             <input 
-                placeholder="Points" 
+                placeholder="Бали" 
                 type="number" 
                 value={task.points} 
                 name="points" 
                 onChange={inputHandler}
+                className="PointsInput"
             />
             <button>
                 <img src={plusIcon} alt="plus_icon"/>

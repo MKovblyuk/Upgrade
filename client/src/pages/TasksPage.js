@@ -21,7 +21,7 @@ export const TasksPage = () => {
 
     return (
         <div className="TasksPage">
-            <div className="PageName">Tasks</div>
+            <div className="PageName">Завдання</div>
             <TasksList tasks={tasks}/>
         </div>
     )
