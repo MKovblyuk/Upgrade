@@ -27,20 +27,20 @@ export const UpdateProfileForm = ({profile, hideForm, visible}) => {
                 <form onSubmit={submitHandler} className="UpdateForm">
                     <input
                         name="name"
-                        value={newProfile.name}
+                        value={newProfile ? newProfile.name : ""}
                         onChange={inputHandler}
                         placeholder="Ім'я"
                         required
                     />
                     <input
                         name="description"
-                        value={newProfile.description}
+                        value={newProfile ? newProfile.description : ""}
                         onChange={inputHandler}
                         placeholder="Опис"
                     />
                     <input
                         name="hobby"
-                        value={newProfile.hobby}
+                        value={newProfile ? newProfile.hobby : ""}
                         onChange={inputHandler}
                         placeholder="Захоплення"
                     />
